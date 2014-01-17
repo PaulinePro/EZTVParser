@@ -41,6 +41,8 @@ def getTvnews():
                 img = td_image.find('img')
                 if img:
                     image_url = img.get('src')
+                    if not image_url.startswith('http'):
+                        image_url = 'http' + image_url
 
             td_content = table.find('td', class_='tvnews_content')
             if td_content:
